@@ -1,5 +1,7 @@
 # Bangkok Road Flooding Bot #
 
+![Diagram](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/diagram.png "Diagram")
+
 ## How it works? ##
 
 Please follow steps below to test
