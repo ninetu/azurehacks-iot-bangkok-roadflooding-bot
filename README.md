@@ -8,7 +8,7 @@ Please follow steps below to test
 
 * Scan QR to add LINE Bot
 
-![LineQR](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/lineqr.png "LineQR")
+![LineQR](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/line-qr.png "LineQR")
 
 * After add, send message to LINE bot
 
