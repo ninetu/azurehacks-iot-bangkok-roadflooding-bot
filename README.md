@@ -2,7 +2,31 @@
 
 ## How it works? ##
 
-### Sensor Data ###
+Please follow steps below to test
+
+### 1. User ###
+
+* Scan QR to add LINE Bot
+
+![LineQR](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/lineqr.png "LineQR")
+
+* After add, send message to LINE bot
+
+`
+subscribe รัชดา
+`
+
+More available commands
+
+Command| Example | Description
+--- | --- | ---
+list | list | List first 20 roads
+subscribe [road-name] | subscribe รัชดา     | Subscribe and receive notification when flooding level on [road-name] is changed
+unsubscribe | unsubscribe | Unsubscribe from all
+[road-name] | รัชดา | Search for specific [road-name]
+
+
+### 2. Sensor ###
 
 * The project get road flooding water level data from IoT sensors
 * Data is sent to Azure IoT-Hub
@@ -13,28 +37,17 @@ npm install
 ```
 
 ```
-// test sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (รัชดา) with floodLevel = 3
+// To test send floodLevel=3 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (รัชดา)
+// After run command below, you will receive LINE notification indicate that floodLevel for "รัชดา" is change from 0-->3
+
 node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 3
 
-// test sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (รัชดา)  with floodLevel = 3
+
+// To test send floodLevel=0 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (รัชดา)
+// After run command below, you will receive LINE notification indicate that floodLevel for "รัชดา" is change from 3-->0
+
 node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
 ```
-
-
-### User ###
-
-* Scan QR to add LINE Bot
-
-![LineQR](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/powerbi.png "LineQR")
-
-* User send command to LINE bot
-
-Command| Example | Description
---- | --- | ---
-list | list | List first 20 roads
-subscribe [road-name] | subscribe รัชดา     | Subscribe and receive notification when flooding level on [road-name] is changed
-unsubscribe | unsubscribe | Unsubscribe from all
-[road-name] | รัชดา | Search for specific [road-name]
 
 
 ### Power BI ###
