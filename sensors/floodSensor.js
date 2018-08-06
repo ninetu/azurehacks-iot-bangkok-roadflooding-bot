@@ -6,9 +6,10 @@ var md5 = require("md5");
 var args = process.argv.slice(2);
 var overideSensorId = args[0]; // cf68cf60ea6879a161d03c2ab5161ef5 = รัชดา
 var overideFloodLevel = args[1]; // 0
-var useLiveData = true;
+var useLiveData = false;
 
 function refreshData() {
+  let res = '';
   if (!useLiveData) {
     res = JSON.parse(fs.readFileSync("./flood.json"));
     processFloodData(res);
