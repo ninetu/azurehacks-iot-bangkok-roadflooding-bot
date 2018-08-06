@@ -23,7 +23,10 @@ node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
 
 ### User ###
 
-* User subscribe to LINE Bot
+* Scan QR to add LINE Bot
+
+![LineQR](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/powerbi.png "LineQR")
+
 * User send command to LINE bot
 
 Command| Example | Description
