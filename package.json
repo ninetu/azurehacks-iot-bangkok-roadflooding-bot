@@ -1,0 +1,26 @@
+{
+  "name": "azurehacks-iot-sensors",
+  "version": "1.0.0",
+  "description": "IoT Device Sensors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ninetu@bitbucket.org/ninetu/azurehacks-iot-sensors.git"
+  },
+  "author": "Thanarat Ruangrat <ninetu@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/ninetu/azurehacks-iot-sensors/src/master/README.md",
+  "dependencies": {
+    "azure-event-hubs": "^0.2.2",
+    "azure-iot-device": "1.4.1",
+    "azure-iot-device-http": "^1.7.1",
+    "azure-iot-device-mqtt": "1.4.1",
+    "md5": "^2.2.1",
+    "moment": "^2.22.1",
+    "noble-uwp": "^0.6.1",
+    "request-promise": "^4.2.2"
+  }
+}
