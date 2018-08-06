@@ -6,7 +6,8 @@ Please follow steps below to test
 
 ### 1. User ###
 
-* Scan QR to add LINE Bot
+* Download LINE messenger
+* Scan QR Code below to add LINE Bot
 
 ![LineQR](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/line-qr.png "LineQR")
 
@@ -51,10 +52,14 @@ node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 3
 node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
 ```
 
+![Cmd](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/cmd.png "Cmd")
+
+
 
 ### Power BI ###
 
 * Power BI is connected to CosmosDB
 * Then visualize road flooding data on map
+* Download PowerBI and open file powerbi/BangkokMap.pbix to see the flooding level on map
 
 ![PowerBI](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/powerbi.png "Power BI")
