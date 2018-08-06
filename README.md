@@ -13,10 +13,10 @@ npm install
 ```
 
 ```
-// test sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 with floodLevel = 3
+// test sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (รัชดา) with floodLevel = 3
 node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 3
 
-// test sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 with floodLevel = 3
+// test sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (รัชดา)  with floodLevel = 3
 node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
 ```
 
