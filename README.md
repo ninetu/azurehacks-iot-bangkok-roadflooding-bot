@@ -40,16 +40,19 @@ npm install
 ```
 
 ```
+// Change to sensors directory
+cd sensors
+
 // To test send floodLevel=3 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (รัชดา)
 // After run command below, you will receive LINE notification indicate that floodLevel for "รัชดา" is change from 0-->3
 
-node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 3
+node floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 3
 
 
 // To test send floodLevel=0 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (รัชดา)
 // After run command below, you will receive LINE notification indicate that floodLevel for "รัชดา" is change from 3-->0
 
-node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
+node floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
 ```
 
 ![Cmd](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/cmd.png "Cmd")

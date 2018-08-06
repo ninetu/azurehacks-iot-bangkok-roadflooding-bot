@@ -1,51 +1,68 @@
 "use strict";
 const config = require("./config.js");
 const rp = require("request-promise");
+const fs = require("fs");
 var md5 = require("md5");
 var args = process.argv.slice(2);
 var overideSensorId = args[0]; // cf68cf60ea6879a161d03c2ab5161ef5 = รัชดา
 var overideFloodLevel = args[1]; // 0
+var useLiveData = true;
 
 function refreshData() {
-  let ts = Date.now().toString();
-  var options = {
-    uri: "http://app.nytu.net/azurehacks/data/flood.json?ts=" + ts,
-    json: true,
-  };
+  if (!useLiveData) {
+    res = JSON.parse(fs.readFileSync("./flood.json"));
+    processFloodData(res);
+  } else {
+    /* this connect to the realtime data */
+    let ts = Date.now().toString();
+    var options = {
+      uri: "http://app.nytu.net/azurehacks/data/flood.json?ts=" + ts,
+      json: true,
+    };
 
-  rp(options)
-    .then(function(res) {
-      if (res && res.dataSet && res.dataSet.length > 0) {
-        for (let i = 0; i < res.dataSet.length; i++) {
-          if (
-            res.dataSet[i].location.coordinate.latitude &&
-            res.dataSet[i].location.coordinate.longitude
-          ) {
-            let _label = res.dataSet[i].location.label;
-            let sensor = {
-              id: md5(_label),
-              label: _label,
-              floodLevel: res.dataSet[i].floodRoad.floodLevel,
-              status: res.dataSet[i].floodRoad.status,
-              latlng:
-                res.dataSet[i].location.coordinate.latitude +
-                "," +
-                res.dataSet[i].location.coordinate.longitude,
-            };
-            if (overideSensorId && overideSensorId === sensor.id) {
-              sensor.floodLevel = overideFloodLevel;
-            }
-            if (sensor.id === "cf68cf60ea6879a161d03c2ab5161ef5") {
-              console.log(sensor);
-              sendData(sensor);
-            }
-          }
+    rp(options)
+      .then(function(res) {
+        processFloodData(res);
+      })
+      .catch(function(err) {
+        // API call failed...
+      });
+  }
+}
+
+function processFloodData(res) {
+  if (res && res.dataSet && res.dataSet.length > 0) {
+    for (let i = 0; i < res.dataSet.length; i++) {
+      if (
+        res.dataSet[i].location.coordinate.latitude &&
+        res.dataSet[i].location.coordinate.longitude
+      ) {
+        let _label = res.dataSet[i].location.label;
+        let sensor = {
+          id: md5(_label),
+          label: _label,
+          floodLevel: res.dataSet[i].floodRoad.floodLevel,
+          status: res.dataSet[i].floodRoad.status,
+          latlng:
+            res.dataSet[i].location.coordinate.latitude +
+            "," +
+            res.dataSet[i].location.coordinate.longitude,
+        };
+        if (overideSensorId && overideSensorId === sensor.id) {
+          sensor.floodLevel = overideFloodLevel;
         }
+
+        /* send only this sensor.id (to reduce azure cost)
+        if (sensor.id === "cf68cf60ea6879a161d03c2ab5161ef5") {
+          console.log(sensor);
+          sendData(sensor);
+        }
+        */
+        // or send everything
+        sendData(sensor);
       }
-    })
-    .catch(function(err) {
-      // API call failed...
-    });
+    }
+  }
 }
 
 // Copyright (c) Microsoft. All rights reserved.

@@ -1,7 +1,7 @@
 {
-  "name": "azurehacks-iot-sensors",
+  "name": "azurehacks-iot-bangkok-roadflooding-bot",
   "version": "1.0.0",
-  "description": "IoT Device Sensors",
+  "description": "Bangkok Road Flooding Bot - Get alert on LINE messenger when it comes",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,8 +19,6 @@
     "azure-iot-device-http": "^1.7.1",
     "azure-iot-device-mqtt": "1.4.1",
     "md5": "^2.2.1",
-    "moment": "^2.22.1",
-    "noble-uwp": "^0.6.1",
     "request-promise": "^4.2.2"
   }
 }
