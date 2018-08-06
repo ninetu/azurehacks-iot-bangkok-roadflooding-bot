@@ -20,14 +20,18 @@ node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 3
 node sensors/floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
 ```
 
+
 ### User ###
 
 * User subscribe to LINE Bot
 * User send command to LINE bot
-- list : list all roads (only first 20 records are returned)
-- subscribe [road_name] : to subscribe [road_name] for receiving alert when water level is changed (at this moment, allow only 1)
-- unsubscribe : to unsubscribe from all
-- [road_name] : to search for [road_name]
+
+Command| Example | Description
+--- | --- | ---
+list | List first 20 roads
+subscribe [road-name] | subscribe รัชดา     | Subscribe and receive notification when flooding level on [road-name] is changed
+unsubscribe | unsubscribe | Unsubscribe from all
+[road-name] | รัชดา | Search for specific [road-name]
 
 
 ### Power BI ###
