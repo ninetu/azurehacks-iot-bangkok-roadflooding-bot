@@ -55,6 +55,10 @@ help | help| List of commands
 
 [![LineDemo](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/youtube.png)](https://youtu.be/ZOic6ufZcuc)
 
+* In case you cannot type Thai. You may click through quick menu by follow steps below
+
+![QuickMenu](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/quickmenu.png "QuickMenu")
+
 
 ### 2. Sensor ###
 
