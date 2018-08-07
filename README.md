@@ -49,7 +49,7 @@ help | help| List of commands
 
 * After subscribed "รัชดา". You may send floodLevel on sensor-id (cf68cf60ea6879a161d03c2ab5161ef5) to receive notification.
 
-[![LineDemo](http://img.youtube.com/vi/ZOic6ufZcuc/0.jpg)](https://youtu.be/ZOic6ufZcuc)
+[![LineDemo](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/youtube.png)](https://youtu.be/ZOic6ufZcuc)
 
 
 ### 2. Sensor ###
