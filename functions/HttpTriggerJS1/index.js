@@ -65,13 +65,14 @@ module.exports = function(context) {
     // context.log(inputText2.substring(0, 9));
     if (inputText2 === "help") {
       outputText = "Type:";
-      outputText += "\n- alert : View street that water level is high";
-      outputText += "\n- warn  : View street that water level is above zero";
-      outputText += "\n- list  : List of streets";
-      outputText += "\n- street name : view flood report on that street";
+      outputText += "\n- alert : List of roads that floodLevel > 0";
+      outputText += "\n- list  : List of roads";
+      outputText += "\n- [road name] : Search for road by name";
+      outputText += "\n- subscribe [road-name] : Subscribe that road"
+      outputText += "\n- unsubscribe : Unsubscribe all"
     } else if (inputText2 === "list") {
       let documents = context.bindings.inputLocation;
-      let rMsg = "Showing " + documents.length.toString() + " streets";
+      let rMsg = "Showing first " + documents.length.toString() + " roads";
       for (var i = 0; i < documents.length; i++) {
         var document = documents[i];
         if (i < 20) {
@@ -79,15 +80,62 @@ module.exports = function(context) {
         }
       }
       outputText = rMsg;
+    } else if (inputText2 === 'alert') {
+      // search inputLocation.label
+      let numFound = 0;
+      let resLocation = [];
+      let documents = context.bindings.inputLocation;
+      for (var i = 0; i < documents.length; i++) {
+        var document = documents[i];
+        if (document.floodLevel > 0) {
+          if (document.status !== "Unknown") {
+            resLocation.push({
+              id: document.id,
+              label: document.label.trim(),
+              status: document.status,
+              floodLevel: document.floodLevel,
+              latlng: document.latlng,
+            });
+            numFound++;
+          }
+        }
+      }
+
+      if (numFound > 0) {
+        let rMsg = "";
+        rMsg += 'Alert! ' + resLocation.length.toString() + " roads";
+        for (let i = 0; i < resLocation.length; i++) {
+          let _icon = "";
+          let _level = 0;
+          rMsg += "\n";
+          if (resLocation[i].status === "Normal") {
+            if (resLocation[i].floodLevel > 0) {
+              _icon = "⚠️";
+              _level = resLocation[i].floodLevel;
+            } else {
+              _icon = "✅";
+            }
+          } else {
+            _icon = "⛔️";
+            _level = resLocation[i].floodLevel;
+          }
+          rMsg += _icon + " " + resLocation[i].label;
+          rMsg += " (" + _level.toString() + " cm)";
+        }
+        outputText = rMsg;
+      } else {
+        outputText = "No flooding in all areas.";
+      }
     } else if (inputText2 === "unsubscribe" || inputText2 === "unsub") {
       inputUser.subscribe = "";
-      outputText = "Complete remove all subscription";
+      outputText = "Unsubscribe successful";
     } else if (inputText2.substring(0, 9) === "subscribe") {
       // context.log(inputUser);
       if (inputUser.subscribe !== undefined && inputUser.subscribe !== "") {
-        outputText = "Change subscribe to " + inputText.substring(10) + ".";
+        outputText = "Change subscription to " + inputText.substring(10) + ".";
       } else {
-        outputText = "Subscribe " + inputText.substring(10) + " done.";
+        outputText = "Subscribe \"" + inputText.substring(10) + "\" success.";
+        outputText+= "\nYou will receive notify when floodLevel is changed";
       }
       inputUser.subscribe = inputText.substring(10);
     } else {
