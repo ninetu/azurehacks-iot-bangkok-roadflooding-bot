@@ -3,7 +3,7 @@
 You can use sensor list below to simulate sending data to Azure IoT Hub.
 Then you can go to LINE messenger and query road name to see floodLevel.
 
-`
+```
 cd sensors
 
 // Test send floodLevel=3 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (ถ.รัชดาฯ หน้าโรบินสัน)
@@ -11,7 +11,7 @@ node floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 3
 
 // Test send floodLevel=0 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (ถ.รัชดาฯ หน้าโรบินสัน)
 node floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
-`
+```
 
 Sensor ID | Road Name
 --- | ---

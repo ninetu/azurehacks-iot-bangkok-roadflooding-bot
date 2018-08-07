@@ -33,28 +33,30 @@ Follow steps below to test
 
 * After add, send message to LINE bot
 
-`
+```
 list
+
 รัชดา
+
 subscribe รัชดา
-`
+```
 
 Command| Example | Description
 --- | --- | ---
-[road-name] | รัชดา | Search for specific [road-name]
 list | list | List first 20 roads
+[road-name] | รัชดา | Search for specific [road-name]
 subscribe [road-name] | subscribe รัชดา     | Subscribe and receive notification on floodLevel of [road-name] is changed
 unsubscribe | unsubscribe | Unsubscribe from all
 help | help| List of commands
 
-* After subscribed "รัชดา". You may send floodLevel on sensor-id (cf68cf60ea6879a161d03c2ab5161ef5) to receive notification.
+* After "subscribe รัชดา". You can test send floodLevel of sensor-id (cf68cf60ea6879a161d03c2ab5161ef5) to see the notification.
 
 [![LineDemo](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/youtube.png)](https://youtu.be/ZOic6ufZcuc)
 
 
 ### 2. Sensor ###
 
-* The project get road flooding water level data from IoT sensors
+* The project get floodingLevel data from IoT sensors
 * Data is sent to Azure IoT-Hub
 * Then trigger Azure Functions to store data into CosmosDB
 
@@ -70,13 +72,13 @@ npm install
 cd sensors
 
 // Test send floodLevel=3 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (ถ.รัชดาฯ หน้าโรบินสัน)
-// After run command below, you will receive LINE notification indicate that floodLevel for "รัชดา" is change from 0-->3
+// After run command below, you will receive LINE notification showing that floodLevel is change from 0-->3
 
 node floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 3
 
 
 // Test send floodLevel=0 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (ถ.รัชดาฯ หน้าโรบินสัน)
-// After run command below, you will receive LINE notification indicate that floodLevel for "รัชดา" is change from 3-->0
+// After run command below, you will receive LINE notification showing that floodLevel is change from 3-->0
 
 node floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
 ```
@@ -85,10 +87,10 @@ node floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
 
 
 
-### Power BI ###
+### 3. PowerBI Report ###
 
 * Power BI is connected to CosmosDB
 * Then visualize road flooding data on map
-* Download PowerBI and open file powerbi/BangkokMap.pbix to see the flooding level on map
+* You can download PowerBI and open `powerbi/BangkokMap.pbix` to see the floodingLevel on map
 
 ![PowerBI](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/powerbi.png "Power BI")
