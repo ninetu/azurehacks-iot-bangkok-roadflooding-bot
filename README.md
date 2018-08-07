@@ -37,6 +37,9 @@ unsubscribe | unsubscribe | Unsubscribe from all
 * Data is sent to Azure IoT-Hub
 * Then trigger Azure Functions to store data into CosmosDB
 
+See [List of sensors](SENSORS.md)
+
+
 ```javascript
 npm install
 ```
@@ -45,13 +48,13 @@ npm install
 // Change to sensors directory
 cd sensors
 
-// To test send floodLevel=3 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (รัชดา)
+// Test send floodLevel=3 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (ถ.รัชดาฯ หน้าโรบินสัน)
 // After run command below, you will receive LINE notification indicate that floodLevel for "รัชดา" is change from 0-->3
 
 node floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 3
 
 
-// To test send floodLevel=0 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (รัชดา)
+// Test send floodLevel=0 for sensor.id = cf68cf60ea6879a161d03c2ab5161ef5 (ถ.รัชดาฯ หน้าโรบินสัน)
 // After run command below, you will receive LINE notification indicate that floodLevel for "รัชดา" is change from 3-->0
 
 node floodSensor.js cf68cf60ea6879a161d03c2ab5161ef5 0
