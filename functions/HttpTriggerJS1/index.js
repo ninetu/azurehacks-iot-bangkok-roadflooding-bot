@@ -72,7 +72,7 @@ module.exports = function(context) {
       outputText += "\n- unsubscribe : Unsubscribe all"
     } else if (inputText2 === "list") {
       let documents = context.bindings.inputLocation;
-      let rMsg = "Showing first " + documents.length.toString() + " roads";
+      let rMsg = "Showing first 20 / " + documents.length.toString() + " roads";
       for (var i = 0; i < documents.length; i++) {
         var document = documents[i];
         if (i < 20) {
@@ -138,6 +138,19 @@ module.exports = function(context) {
         outputText+= "\nYou will receive notify when floodLevel is changed";
       }
       inputUser.subscribe = inputText.substring(10);
+      
+      quickReply = {
+        items: [
+          {
+            type: "action",
+            action: {
+              type: "message",
+              label: "Unsubscribe",
+              text: "Unsubscribe",
+            },
+          },
+        ],
+      };
     } else {
       // search inputLocation.label
       let numFound = 0;
