@@ -57,7 +57,7 @@ help | help| List of commands
 
 * In case you cannot type `รัชดา` in Thai. You can click through quick menu by follow steps below.
 
-Hint! If you get difficulty to copy & paste text on mobile. Please try [![LINE on Desktop](https://line.me/en/download)
+Hint! If you get difficulty to copy & paste text on mobile. Please try [LINE on Desktop](https://line.me/en/download)
 
 ![QuickMenu](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/quickmenu-en.png "QuickMenu")
 
