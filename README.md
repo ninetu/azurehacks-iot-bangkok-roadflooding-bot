@@ -55,7 +55,9 @@ help | help| List of commands
 
 [![LineDemo](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/youtube.png)](https://youtu.be/ZOic6ufZcuc)
 
-* In case you cannot type `รัชดา` in Thai. You can click through quick menu by follow steps below
+* In case you cannot type `รัชดา` in Thai. You can click through quick menu by follow steps below.
+
+Hint! If you get difficulty to copy & paste text on mobile. Please try [![LINE on Desktop](https://line.me/en/download)
 
 ![QuickMenu](https://github.com/ninetu/azurehacks-iot-bangkok-roadflooding-bot/raw/master/assets/quickmenu-en.png "QuickMenu")
 
