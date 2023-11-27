@@ -15,9 +15,9 @@
   "homepage": "https://bitbucket.org/ninetu/azurehacks-iot-sensors/src/master/README.md",
   "dependencies": {
     "azure-event-hubs": "^0.2.5",
-    "azure-iot-device": "1.7.1",
-    "azure-iot-device-http": "^1.7.1",
-    "azure-iot-device-mqtt": "1.7.1",
+    "azure-iot-device": "1.12.0",
+    "azure-iot-device-http": "^1.11.0",
+    "azure-iot-device-mqtt": "1.14.0",
     "md5": "^2.2.1",
     "request-promise": "^4.2.2"
   }
